@@ -1,12 +1,20 @@
 import React from 'react';
-import '../styling/landingpage.css'
+import { Link } from 'react-router-dom';
+import '../styling/landingpage.css';
+import LandingImage from '../images/landingpic.svg';
 
 function LandingPage() {
   return (
     <div className="landing-page">
-      <h1>Welcome to RendezView</h1>
-      <p>Coordinate your plans effortlessly</p>
-      <button>Get Started</button>
+      <h1>RendezView</h1>
+      <p>Coordinate your plans effortlessly.</p>
+      <div className="button-container">
+        <Link to="/login">
+        <button className="login-button">Login</button>
+        </Link>
+        <button className="signup-button">Sign Up</button>
+      </div>
+      <img src={LandingImage} width="50%"/>
     </div>
   );
 }
