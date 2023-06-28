@@ -1,27 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styling/navbar.css';
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <nav className="navbar">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link to="/" className="nav-link">
-            Home
+      <div className="nav-container">
+        <input
+          type="checkbox"
+          className="checkbox"
+          id="nav-toggle"
+          checked={isMenuOpen}
+          onChange={handleMenuToggle}
+        />
+        <label className="hamburger" htmlFor="nav-toggle">
+          <span className="line"></span>
+          <span className="line"></span>
+          <span className="line"></span>
+        </label>
+        <div className={`navbar-links ${isMenuOpen ? 'open' : ''}`}>
+          <Link to="/profile" className="navbar-link">
+            Profile
           </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/login" className="nav-link">
+          <Link to="/contacts" className="navbar-link">
+            Contacts
+          </Link>
+          <Link to="/dashboard" className="navbar-link">
+            Dashboard
+          </Link>
+          <Link to="/login" className="navbar-link">
             Login
           </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/signup" className="nav-link">
+          <Link to="/signup" className="navbar-link">
             Signup
           </Link>
-        </li>
-      </ul>
+        </div>
+      </div>
     </nav>
   );
 }

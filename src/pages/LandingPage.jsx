@@ -12,7 +12,9 @@ function LandingPage() {
         <Link to="/login">
         <button className="login-button">Login</button>
         </Link>
+        <Link to="/signup">
         <button className="signup-button">Sign Up</button>
+        </Link>
       </div>
       <img src={LandingImage} width="50%"/>
     </div>

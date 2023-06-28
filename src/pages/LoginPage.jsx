@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import '../styling/loginpage.css';
 
 function LoginPage() {
@@ -10,6 +11,9 @@ function LoginPage() {
         <input type="password" placeholder="Password" />
         <button type="submit">Login</button>
       </form>
+      <p>
+        Don't have an account? <Link to="/signup">Sign up!</Link>
+      </p>
     </div>
   );
 }
